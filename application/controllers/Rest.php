@@ -12,13 +12,18 @@ class Rest extends CI_Controller {
     $this->load->view('rest/view', $data);
   }
 
-  public function get($fname, $lname) {
+  public function get() {
     $data['title'] = 'Test API setup';
+    $fname = $this->input->get('fname');
+    $lname = $this->input->get('lname');
     $data['person'] = $this->rest_model->get_person($fname, $lname);
     $this->load->view('rest/view', $data);
   }
 
-  public function post($fname, $lname, $data) {
+  public function post() {
+    $fname = $this->input->post('fname');
+    $lname = $this->input->post('lname');
+    $data = $this->input->post('data');
     $this->rest_model->post_person($fname, $lname, $data);
   }
 
