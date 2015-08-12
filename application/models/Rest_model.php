@@ -15,4 +15,14 @@ class Rest_model extends CI_Model {
     return $query->row_array();
   }
 
+  public function post_person($fname, $lname, $data) {
+    $data = array(
+        'fname' => $fname,
+        'lname' => $lname,
+        'data' => $data
+    );
+
+    return $this->db->insert('people', $data);
+  }
+
 }
