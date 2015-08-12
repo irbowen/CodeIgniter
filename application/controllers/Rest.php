@@ -8,9 +8,9 @@ class Rest extends CI_Controller {
 
   public function index() {
     $data['title'] = 'Test API setup';
-    echo "Sup";
-    $data['news'] = $this->rest_model->get_person('Isaac', 'Bowen');
+    $data['person'] = $this->rest_model->get_person('Isaac', 'Bowen');
     $this->load->view('templates/header', $data);
+    $this->load->view('rest/view', $data);
     $this->load->view('templates/footer');
   }
 
